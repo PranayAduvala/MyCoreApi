@@ -75,5 +75,5 @@ stages:
 
       inputs:
          targetPath: '$(Build.ArtifactStagingDirectory)'
-         artifactName: 'pranayKubeArtifact'
-	       publishLocation: 'pipeline'
+         artifact: 'pranayKubeArtifact'
+         publishLocation: 'pipeline'
