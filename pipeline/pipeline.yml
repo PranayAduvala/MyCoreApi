@@ -70,10 +70,10 @@ stages:
 
           latest,$(tag)
 
+  
     - task: PublishPipelineArtifact@1
 
       inputs:
-
-         targetPath: '$(Pipeline.Workspace)'
+         targetPath: '$(Build.ArtifactStagingDirectory)'
          artifactName: 'pranayKubeArtifact'
-	       publishLocation:'pipeline'
+	       publishLocation: 'pipeline'
