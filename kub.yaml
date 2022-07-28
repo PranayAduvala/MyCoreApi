@@ -1,1 +1,78 @@
+apiVersion: apps/v1
 
+kind: Deployment
+
+metadata:
+
+  name: kubePranay
+
+  namespace: TestKubePranay
+
+  labels:
+
+    app: kubePranay
+
+spec:
+
+  replicas: 1
+
+  selector:
+
+    matchLabels:
+
+      app: kubePranay
+
+  template:
+
+    metadata:
+
+      labels:
+
+        app: kubePranay
+
+    spec:
+
+      containers:
+
+        - name: ImagekubePranay
+
+          image: prdctmntc.azurecr.io/ImagekubePranay:#{Release.Artifacts.pranayKubeArtifact.BuildId}#
+
+     
+
+          imagePullPolicy: Always
+
+          ports:
+
+            - containerPort: 5000
+
+      imagePullSecrets:
+
+        - name: azTestKubePranay
+
+---
+
+---
+
+apiVersion: v1
+
+kind: Service
+
+metadata:
+
+  name: kubePranay
+
+spec:
+
+  type: LoadBalancer
+
+  ports:
+
+    - name: http
+
+      port: 5000
+
+
+  selector:
+
+    app: kubePranay
