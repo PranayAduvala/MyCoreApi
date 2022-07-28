@@ -6,7 +6,7 @@ metadata:
 
   name: kubePranay
 
-  namespace: TestKubePranay
+  namespace: kubebunty
 
   labels:
 
