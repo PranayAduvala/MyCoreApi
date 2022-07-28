@@ -1,79 +1,79 @@
-trigger:
+apiVersion: apps/v1
 
-  branches:
+kind: Deployment
 
-    include:
+metadata:
 
-      - KubernetesBranch
+  name: kubepranay
+
+  namespace: testkubespace
+
+  labels:
+
+    app: kubepranay
+
+spec:
+
+  replicas: 1
+
+  selector:
+
+    matchLabels:
+
+      app: kubepranay
+
+  template:
+
+    metadata:
+
+      labels:
+
+        app: kubepranay
+
+    spec:
+
+      containers:
+
+        - name: kubeimagepranay
+
+          image: prdctmntc.azurecr.io/kubeimagepranay:#{Release.Artifacts.newartifactpranaykube.BuildId}#
+
+     
+
+          imagePullPolicy: Always
+
+          ports:
+
+            - containerPort: 5000
 
 
+      imagePullSecrets:
 
-variables:
+        - name: azkubeimage
 
-  # Container registry service connection established during pipeline creation
+---
 
-  dockerRegistryServiceConnection: 'testdocker'
+---
 
-  imageRepository: 'ImagekubePranay'
+apiVersion: v1
 
-  containerRegistry: 'prdctmntc.azurecr.io'
+kind: Service
 
-  dockeruser: 'prdctmntc'
+metadata:
 
-  dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
+  name: kubepranay
 
-  tag: '$(Build.BuildId)'
+spec:
 
-  vmImage: ubuntu-latest
+  type: LoadBalancer
 
+  ports:
 
+    - name: http
 
-stages:
-
-
-
-- stage: Build
-
-  displayName: Build and push stage
-
-  jobs:
-
-  - job: Build
-
-    displayName: Build
-
-    pool:
-
-      vmImage: $(vmImage)
+      port: 5000
 
 
+  selector:
 
-    steps:
-
-    
-
-    - task: Docker@2
-
-      displayName: Build and push an image to container registry
-
-      inputs:
-
-        command: buildAndPush
-
-        repository: $(imageRepository)
-
-        dockerfile: $(dockerfilePath)
-
-        containerRegistry: $(dockerRegistryServiceConnection)
-
-        tags: |
-
-          latest,$(tag)
-
-  
-    - task: PublishPipelineArtifact@1
-
-      inputs:
-         targetPath: '$(Pipeline.Workspace)'
-         artifact: 'pranayKubeArtifact'
-         publishLocation: 'pipeline'
+    app: kubepranay
