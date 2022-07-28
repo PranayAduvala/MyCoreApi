@@ -4,8 +4,7 @@
 # https://aka.ms/yaml
 
 trigger:
-- main
-
+      - KubernetesBranch
 pool:
   vmImage: ubuntu-latest
 
