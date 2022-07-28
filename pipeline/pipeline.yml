@@ -74,6 +74,6 @@ stages:
     - task: PublishPipelineArtifact@1
 
       inputs:
-         targetPath: '$(Build.ArtifactStagingDirectory)'
+         targetPath: '$(Pipeline.Workspace)'
          artifact: 'pranayKubeArtifact'
          publishLocation: 'pipeline'
