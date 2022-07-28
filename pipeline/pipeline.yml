@@ -1,79 +1,25 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
 trigger:
+- main
 
-  branches:
-
-    include:
-
-      - KubernetesBranch
-
-
-
-variables:
-
-  # Container registry service connection established during pipeline creation
-
-  dockerRegistryServiceConnection: 'testdocker'
-
-  imageRepository: 'ImagekubePranay'
-
-  containerRegistry: 'prdctmntc.azurecr.io'
-
-  dockeruser: 'prdctmntc'
-
-  dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
-
-  tag: '$(Build.BuildId)'
-
+pool:
   vmImage: ubuntu-latest
 
-
-
-stages:
-
-
-
-- stage: Build
-
-  displayName: Build and push stage
-
-  jobs:
-
-  - job: Build
-
-    displayName: Build
-
-    pool:
-
-      vmImage: $(vmImage)
-
-
-
-    steps:
-
+steps:
+- task: Docker@2
+  displayName: buildAndPush
+  inputs:
+    containerRegistry: 'DockerServiceConnectionPranay'
+    repository: 'ImagekubePranay'
+    command: 'buildAndPush' 
+    Dockerfile: '**/Dockerfile'
     
-
-    - task: Docker@2
-
-      displayName: Build and push an image to container registry
-
-      inputs:
-
-        command: buildAndPush
-
-        repository: $(imageRepository)
-
-        dockerfile: $(dockerfilePath)
-
-        containerRegistry: $(dockerRegistryServiceConnection)
-
-        tags: |
-
-          latest,$(tag)
-
-    - task: PublishPipelineArtifact@1
-
-      inputs:
-
-        targetPath: '$(Build.ArtifactStagingDirectory)' 
-
-        artifactName: 'pranayKubeArtifact'
+- task: PublishPipelineArtifact@1
+  inputs:
+    targetPath: '$(Pipeline.Workspace)'
+    artifact: 'buildArtifacts'
+    publishLocation: 'pipeline'
