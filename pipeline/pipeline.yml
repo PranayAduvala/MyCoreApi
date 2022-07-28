@@ -12,7 +12,7 @@ variables:
 
   # Container registry service connection established during pipeline creation
 
-  dockerRegistryServiceConnection: 'GoiIotService'
+  dockerRegistryServiceConnection: 'NewTestDocketConn'
 
   imageRepository: 'ImagekubePranay'
 
@@ -74,6 +74,6 @@ stages:
 
       inputs:
 
-      targetPath: '$(Build.ArtifactStagingDirectory)' 
+        targetPath: '$(Build.ArtifactStagingDirectory)' 
 
-      artifactName: 'pranayKubeArtifact'
+        artifactName: 'pranayKubeArtifact'
