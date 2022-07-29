@@ -14,7 +14,7 @@ variables:
 
   dockerRegistryServiceConnection: 'testdocker'
 
-  imageRepository: 'kubeimagepranay'
+  imageRepository: 'containerkube'
 
   containerRegistry: 'prdctmntc.azurecr.io'
 
@@ -75,5 +75,5 @@ stages:
 
       inputs:
          targetPath: '$(Pipeline.Workspace)'
-         artifact: 'newartifactpranaykube'
+         artifact: 'todayartifactkube'
          publishLocation: 'pipeline'
