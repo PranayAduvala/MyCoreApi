@@ -36,7 +36,7 @@ spec:
 
         - name: containerkube
 
-          image: prdctmntc.azurecr.io/containerkube:#{Release.Artifacts.todayartifactkube.BuildId}#
+          image: "prdctmntc.azurecr.io/containerkube:#{Release.Artifacts.todayartifactkube.BuildId}#"
 
      
 
