@@ -1,0 +1,61 @@
+2022-07-29T13:00:00.1107994Z ##[section]Starting: Azure CLI 
+2022-07-29T13:00:00.1221356Z ==============================================================================
+2022-07-29T13:00:00.1221684Z Task         : Azure CLI
+2022-07-29T13:00:00.1222180Z Description  : Run Azure CLI commands against an Azure subscription in a PowerShell Core/Shell script when running on Linux agent or PowerShell/PowerShell Core/Batch script when running on Windows agent.
+2022-07-29T13:00:00.1222649Z Version      : 2.198.0
+2022-07-29T13:00:00.1222869Z Author       : Microsoft Corporation
+2022-07-29T13:00:00.1223191Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-cli
+2022-07-29T13:00:00.1223549Z ==============================================================================
+2022-07-29T13:00:00.4143001Z [command]C:\Windows\system32\cmd.exe /D /S /C ""C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\wbin\az.cmd" --version"
+2022-07-29T13:00:37.0936252Z 
+2022-07-29T13:00:37.0937185Z azure-cli                         2.38.0
+2022-07-29T13:00:37.1098182Z Please let us know how we are doing: https://aka.ms/azureclihats
+2022-07-29T13:00:37.1098517Z 
+2022-07-29T13:00:37.1114134Z core                              2.38.0
+2022-07-29T13:00:37.1115492Z and let us know if you're interested in trying out our newest features: https://aka.ms/CLIUXstudy
+2022-07-29T13:00:37.1117614Z telemetry                          1.0.6
+2022-07-29T13:00:37.1119537Z 
+2022-07-29T13:00:37.1213545Z Extensions:
+2022-07-29T13:00:37.1240477Z azure-devops                      0.25.0
+2022-07-29T13:00:37.1270195Z 
+2022-07-29T13:00:37.1273665Z Dependencies:
+2022-07-29T13:00:37.1275028Z msal                            1.18.0b1
+2022-07-29T13:00:37.1275617Z azure-mgmt-resource             21.1.0b1
+2022-07-29T13:00:37.1275902Z 
+2022-07-29T13:00:37.1276407Z Python location 'C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\python.exe'
+2022-07-29T13:00:37.1277055Z Extensions directory 'C:\Program Files\Common Files\AzureCliExtensionDirectory'
+2022-07-29T13:00:37.1277420Z 
+2022-07-29T13:00:37.1277970Z Python (Windows) 3.10.5 (tags/v3.10.5:f377153, Jun  6 2022, 15:58:59) [MSC v.1929 32 bit (Intel)]
+2022-07-29T13:00:37.1278348Z 
+2022-07-29T13:00:37.1278795Z Legal docs and information: aka.ms/AzureCliLegal
+2022-07-29T13:00:37.1279074Z 
+2022-07-29T13:00:37.1279289Z 
+2022-07-29T13:00:37.1279680Z Your CLI is up-to-date.
+2022-07-29T13:00:37.1282311Z Setting AZURE_CONFIG_DIR env variable to: D:\a\_temp\.azclitask
+2022-07-29T13:00:37.1283937Z Setting active cloud to: AzureCloud
+2022-07-29T13:00:37.1293543Z [command]C:\Windows\system32\cmd.exe /D /S /C ""C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\wbin\az.cmd" cloud set -n AzureCloud"
+2022-07-29T13:01:08.5880516Z [command]C:\Windows\system32\cmd.exe /D /S /C ""C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\wbin\az.cmd" login --service-principal -u *** "--password=***" --tenant 85c997b9-f494-46b3-a11d-772983cf6f11 --allow-no-subscriptions"
+2022-07-29T13:01:11.3044426Z [
+2022-07-29T13:01:11.3045078Z   {
+2022-07-29T13:01:11.3045532Z     "cloudName": "AzureCloud",
+2022-07-29T13:01:11.3046053Z     "homeTenantId": "85c997b9-f494-46b3-a11d-772983cf6f11",
+2022-07-29T13:01:11.3046585Z     "id": "cc6c5ada-bba3-4095-a48c-1741b0b7b026",
+2022-07-29T13:01:11.3047047Z     "isDefault": true,
+2022-07-29T13:01:11.3047461Z     "managedByTenants": [],
+2022-07-29T13:01:11.3047946Z     "name": "M1006051-2110285-I-DI-IoT-Mindtree-Ltd-India",
+2022-07-29T13:01:11.3048490Z     "state": "Enabled",
+2022-07-29T13:01:11.3048967Z     "tenantId": "85c997b9-f494-46b3-a11d-772983cf6f11",
+2022-07-29T13:01:11.3049395Z     "user": {
+2022-07-29T13:01:11.3049907Z       "name": "***",
+2022-07-29T13:01:11.3050320Z       "type": "servicePrincipal"
+2022-07-29T13:01:11.3050709Z     }
+2022-07-29T13:01:11.3051049Z   }
+2022-07-29T13:01:11.3051389Z ]
+2022-07-29T13:01:11.3190982Z [command]C:\Windows\system32\cmd.exe /D /S /C ""C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\wbin\az.cmd" account set --subscription cc6c5ada-bba3-4095-a48c-1741b0b7b026"
+2022-07-29T13:01:11.9942975Z [command]"C:\Program Files\Git\bin\bash.exe" D:\a\_temp\azureclitaskscript1659099600383.sh
+2022-07-29T13:01:17.7747706Z ERROR: (InvalidContainerName) The container name 'iotcontainerPranay1' in container group 'iotcontainerPranay1' is invalid. The container name must contain no more than 63 characters and must match the regex '[a-z0-9]([-a-z0-9]*[a-z0-9])?' (e.g. 'my-name').
+2022-07-29T13:01:17.7749368Z Code: InvalidContainerName
+2022-07-29T13:01:17.7750334Z Message: The container name 'iotcontainerPranay1' in container group 'iotcontainerPranay1' is invalid. The container name must contain no more than 63 characters and must match the regex '[a-z0-9]([-a-z0-9]*[a-z0-9])?' (e.g. 'my-name').
+2022-07-29T13:01:17.8890860Z ##[error]Script failed with exit code: 1
+2022-07-29T13:01:17.8999002Z [command]C:\Windows\system32\cmd.exe /D /S /C ""C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\wbin\az.cmd" account clear"
+2022-07-29T13:01:18.6016005Z ##[section]Finishing: Azure CLI 

@@ -27,7 +27,7 @@ public class SendTelemetryMessages
        while(true)
        {
         var telemetry=new{
-            temperature=reportedProp["temperature"],
+            temperature=reportedProp["temparature"],
             pressure=reportedProp["pressure"],
             drift=reportedProp["drift"],
             accuracy=reportedProp["accuracy"],

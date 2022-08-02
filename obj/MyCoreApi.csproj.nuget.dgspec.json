@@ -38,6 +38,22 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Azure.Data.Tables": {
+              "target": "Package",
+              "version": "[12.6.1, )"
+            },
+            "Azure.Storage.Blobs": {
+              "target": "Package",
+              "version": "[12.13.0, )"
+            },
+            "Azure.Storage.Files.Shares": {
+              "target": "Package",
+              "version": "[12.11.0, )"
+            },
+            "Azure.Storage.Queues": {
+              "target": "Package",
+              "version": "[12.11.0, )"
+            },
             "Microsoft.Azure.Devices": {
               "target": "Package",
               "version": "[1.37.1, )"
@@ -45,6 +61,10 @@
             "Microsoft.Azure.Devices.Client": {
               "target": "Package",
               "version": "[1.41.0, )"
+            },
+            "Microsoft.Azure.Storage.Common": {
+              "target": "Package",
+              "version": "[11.2.3, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",
